@@ -58,10 +58,10 @@ python3 -m venv venv
 
 ```bash
 # Windows
-env/Scripts/activate
+venv/Scripts/activate
 
 # MacOs + Linux
-source env/bin/activate
+source venv/bin/activate
 ```
 
 ### Установите зависимости
