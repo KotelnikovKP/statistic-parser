@@ -42,7 +42,7 @@
 ### Клонировать проект из репозитория GitHub
 
 ```bash
-git https://github.com/KotelnikovKP/statistic-parser.git 
+git clone https://github.com/KotelnikovKP/statistic-parser.git 
 ```
 
 ### Установить виртуальное окружение
