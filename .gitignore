@@ -4,3 +4,4 @@
 /main/migrations/
 /*.docx
 /*.xlsx
+!Входной файл.xlsx
