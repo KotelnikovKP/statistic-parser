@@ -1,0 +1,6 @@
+/venv/
+/.idea/
+/.env
+/main/migrations/
+/*.docx
+/*.xlsx

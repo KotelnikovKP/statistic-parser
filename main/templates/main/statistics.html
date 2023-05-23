@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% load main_tags %}
+{% load static %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<table class="table-log">
+    <tr>
+        <th rowspan="2">КОМПАНИЯ</th>
+        <th rowspan="2">ДАТА</th>
+        <th colspan="{{ indicators_level_selected }}">ИНДИКАТОРЫ</th>
+        <th rowspan="2">СУММА</th>
+    </tr>
+    <tr>
+        <th>1 уровень</th>
+        {% if indicators_level_selected > 1 %}<th>2 уровень</th>{% endif %}
+        {% if indicators_level_selected > 2 %}<th>3 уровень</th>{% endif %}
+    </tr>
+    {% for s in statistics %}
+    <tr>
+        <td>{{ s.company__name }}</td>
+        <td>{{ s.stats_date }}</td>
+        <td>{{ s.first_level_indicator__name }}</td>
+        {% if indicators_level_selected > 1 %}<td>{{ s.second_level_indicator__name }}</td>{% endif %}
+        {% if indicators_level_selected > 2 %}<td>{{ s.third_level_indicator__name }}</td>{% endif %}
+        <td>{{ s.total }}</td>
+    </tr>
+    {% endfor %}
+    {% if not statistics %}<tr><td colspan="6">Нет данных</td></tr>{% endif %}
+</table>
+{% endblock %}

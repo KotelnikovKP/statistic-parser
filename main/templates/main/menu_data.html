@@ -1,0 +1,14 @@
+{% load main_tags %}
+{% load static %}
+{% if company_selected == 0 %}
+<li class="selected">Все компании</li>
+{% else %}
+<li><a href="{% url 'data' 0 %}">Все компании</a></li>
+{% endif %}
+{% for c in companies %}
+    {% if c.pk == company_selected %}
+<li class="selected">{{ c.name }}</li>
+    {% else %}
+<li><a href="{% url 'data' c.pk %}">{{ c.name }}</a></li>
+    {% endif %}
+{% endfor %}

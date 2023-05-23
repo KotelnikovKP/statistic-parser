@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% load main_tags %}
+{% load static %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<table class="table-log">
+    <tr>
+        <th rowspan="2">ID</th>
+        <th rowspan="2">ДАТА</th>
+        <th rowspan="2">КОМПАНИЯ</th>
+        <th colspan="3">ИНДИКАТОРЫ</th>
+        <th rowspan="2">ЗНАЧЕНИЕ</th>
+    </tr>
+    <tr>
+        <th>1 уровень</th>
+        <th>2 уровень</th>
+        <th>3 уровень</th>
+    </tr>
+    {% for s in statistics %}
+    <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.stats_date }}</td>
+        <td>{{ s.company }}</td>
+        <td>{{ s.first_level_indicator }}</td>
+        <td>{{ s.second_level_indicator }}</td>
+        <td>{{ s.third_level_indicator }}</td>
+        <td>{{ s.value }}</td>
+    </tr>
+    {% endfor %}
+    {% if not statistics %}<tr><td colspan="6">Нет данных</td></tr>{% endif %}
+</table>
+{% endblock %}

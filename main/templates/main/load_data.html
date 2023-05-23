@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-error">{{ form.non_field_errors }}</div>
+    {% for f in form %}
+    <p class="form-p" id="p_{{ f.id_for_label }}"><label class="form-label" for="p_{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+        {% if f.help_text %}
+    <p class="form-p-help" id="ph_{{ f.id_for_label }}"><label class="form-label-help" for="ph_{{ f.id_for_label }}">{% autoescape off %}{{ f.help_text }}{% endautoescape %}</label></p>
+        {% endif %}
+    <div id="pe_{{ f.id_for_label }}" class="form-error">{{ f.errors }}</div>
+    {% endfor %}
+    <p> </p>
+    <button type="submit">Загрузить данные</button>
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load main_tags %}
+{% load static %}
+<li><p>Группировать до:</p></li>
+<hr>
+{% if indicators_level_selected == 1 %}
+<li class="selected">Уровень 1</li>
+{% else %}
+<li><a href="{% url 'statistics' 1 %}">Уровень 1</a></li>
+{% endif %}
+{% if indicators_level_selected == 2 %}
+<li class="selected">Уровень 2</li>
+{% else %}
+<li><a href="{% url 'statistics' 2 %}">Уровень 2</a></li>
+{% endif %}
+{% if indicators_level_selected == 3 %}
+<li class="selected">Уровень 3</li>
+{% else %}
+<li><a href="{% url 'statistics' 3 %}">Уровень 3</a></li>
+{% endif %}
